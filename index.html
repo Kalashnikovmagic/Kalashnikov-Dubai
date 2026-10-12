@@ -317,6 +317,8 @@ function renderDlg(){if(!cur)return;const e=EV[cur][lang];$('#dt').textContent=e
 function renderWa(){wa.href=cur?'https://wa.me/'+PHONE+'?text='+encodeURIComponent(T[lang].waMsg(EV[cur][lang].t)):'https://wa.me/'+PHONE}
 function setLang(l){
  if(!T[l])l='en';lang=l;try{localStorage.setItem(LS,l)}catch(_){}
+ document.querySelectorAll('.scene5__card--micro .scene5__video').forEach(v=>v.poster=l==='en'?'img/micro-preview-eng.png':'img/micro-preview.PNG');
+ document.querySelectorAll('.scene5__card--stage .scene5__video').forEach(v=>v.poster=l==='en'?'img/stage-preview-eng.png':'img/stage-preview.PNG');
  const d=T[l];document.documentElement.lang=l;document.title=d.title;
  meta('meta[name="description"]','content',d.desc);meta('meta[property="og:title"]','content',d.ogTitle);meta('meta[property="og:description"]','content',d.desc);meta('meta[property="og:locale"]','content',d.locale);
  document.querySelectorAll('[data-i18n]').forEach(n=>{const v=d[n.dataset.i18n];if(v!=null)n.textContent=v});
